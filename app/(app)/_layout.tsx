@@ -56,6 +56,7 @@ export default function AppLayout() {
             tabBarIcon: ({ color, size }) => (
               <FontAwesome name="user" size={size} color={color} />
             ),
+            headerShown: false,
           }}
         />
         <Tabs.Screen

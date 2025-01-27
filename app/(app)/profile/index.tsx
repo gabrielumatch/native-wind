@@ -1,6 +1,7 @@
 import { Text, View, Switch } from "react-native";
 import { useTheme } from "../../_layout";
 import { getThemeColors } from "../../../lib/theme";
+import { Link } from "expo-router";
 
 export default function Profile() {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -37,6 +38,11 @@ export default function Profile() {
           Toggle between light and dark mode
         </Text>
       </View>
+      <Link href="./profile/settings">
+        <Text style={{ color: colors.text.primary }} className="text-base">
+          Settings
+        </Text>
+      </Link>
     </View>
   );
 }
