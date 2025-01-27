@@ -1,10 +1,18 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import {
-  PermissionType,
-  PermissionStatus,
-  checkPermission,
-  requestPermission,
-} from "./index";
+import type { PermissionType, PermissionStatus } from "./types";
+import { cameraPermissions } from "./camera";
+import { microphonePermissions } from "./microphone";
+import { locationPermissions } from "./location";
+import { photoLibraryPermissions } from "./photo-library";
+import { trackingPermissions } from "./tracking";
+
+const permissionHandlers = {
+  camera: cameraPermissions,
+  microphone: microphonePermissions,
+  location: locationPermissions,
+  photoLibrary: photoLibraryPermissions,
+  tracking: trackingPermissions,
+};
 
 export function usePermission(type: PermissionType) {
   const [status, setStatus] = useState<PermissionStatus>("undetermined");
@@ -23,7 +31,7 @@ export function usePermission(type: PermissionType) {
   const checkPermissionStatus = useCallback(async () => {
     try {
       setIsLoading(true);
-      const result = await checkPermission(type);
+      const result = await permissionHandlers[type].check();
       if (isMounted.current) {
         setStatus(result.status);
         setCanAskAgain(result.canAskAgain);
@@ -40,7 +48,7 @@ export function usePermission(type: PermissionType) {
   const request = useCallback(async () => {
     try {
       setIsLoading(true);
-      const result = await requestPermission(type);
+      const result = await permissionHandlers[type].request();
       if (isMounted.current) {
         setStatus(result.status);
         setCanAskAgain(result.canAskAgain);
