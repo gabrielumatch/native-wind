@@ -29,15 +29,6 @@ export default function AppLayout() {
           }}
         />
         <Tabs.Screen
-          name="profile"
-          options={{
-            title: "Profile",
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome name="user" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tabs.Screen
           name="chat"
           options={{
             title: "Chat",
@@ -46,6 +37,16 @@ export default function AppLayout() {
             ),
           }}
         />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: "Profile",
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome name="user" size={size} color={color} />
+            ),
+          }}
+        />
+
         <Tabs.Screen
           name="index"
           options={{
