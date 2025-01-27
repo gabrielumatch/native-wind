@@ -9,14 +9,29 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to the camera to take photos.",
+        "NSMicrophoneUsageDescription": "This app needs access to the microphone for recording audio.",
+        "NSLocationWhenInUseUsageDescription": "This app needs access to location when open to show relevant content.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to save and share photos.",
+        "NSUserTrackingUsageDescription": "This app uses tracking data to provide personalized content and improve your experience."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.nativewind.app"
+      "package": "com.nativewind.app",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -33,7 +48,11 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-camera",
+      "expo-location",
+      "expo-media-library",
+      "expo-tracking-transparency"
     ],
     "experiments": {
       "typedRoutes": true
