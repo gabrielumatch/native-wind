@@ -1,26 +1,42 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function AppLayout() {
   return (
-    <Stack screenOptions={{ headerShown: true }}>
-      <Stack.Screen
-        name="index"
-        options={{
-          title: "Home",
-        }}
-      />
-      <Stack.Screen
-        name="discovery/index"
+    <Tabs screenOptions={{ headerShown: false }}>
+      <Tabs.Screen
+        name="discovery"
         options={{
           title: "Discovery",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="search" size={size} color={color} />
+          ),
         }}
       />
-      <Stack.Screen
-        name="discovery/unlock/index"
+      <Tabs.Screen
+        name="profile"
         options={{
-          title: "Unlock",
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="user" size={size} color={color} />
+          ),
         }}
       />
-    </Stack>
+      <Tabs.Screen
+        name="chat"
+        options={{
+          title: "Chat",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="comments" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="index"
+        options={{
+          href: null,
+        }}
+      />
+    </Tabs>
   );
 }
