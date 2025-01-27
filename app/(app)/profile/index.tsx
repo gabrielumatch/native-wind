@@ -1,25 +1,39 @@
-import { Text, View, Switch, Pressable } from "react-native";
+import { Text, View, Switch } from "react-native";
 import { useTheme } from "../../_layout";
+import { getThemeColors } from "../../../lib/theme";
 
-export default function Index() {
+export default function Profile() {
   const { isDarkMode, toggleTheme } = useTheme();
+  const colors = getThemeColors(isDarkMode);
 
   return (
-    <View className="flex-1 p-4 dark:bg-gray-900 bg-white">
-      <View className="flex-row items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-        <Text className="text-lg font-medium dark:text-white text-gray-900">
+    <View
+      style={{ backgroundColor: colors.background.primary }}
+      className="flex-1 p-4"
+    >
+      <View
+        style={{ backgroundColor: colors.background.secondary }}
+        className="flex-row items-center justify-between p-4 rounded-lg"
+      >
+        <Text
+          style={{ color: colors.text.primary }}
+          className="text-lg font-medium"
+        >
           Dark Mode
         </Text>
         <Switch
           value={isDarkMode}
           onValueChange={toggleTheme}
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          trackColor={{
+            false: colors.background.tertiary,
+            true: colors.navigation.tabBar.activeColor,
+          }}
           thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
         />
       </View>
 
       <View className="mt-4">
-        <Text className="text-gray-600 dark:text-gray-300">
+        <Text style={{ color: colors.text.secondary }} className="text-base">
           Toggle between light and dark mode
         </Text>
       </View>

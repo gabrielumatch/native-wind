@@ -5,7 +5,7 @@ export default function DiscoveryLayout() {
     <Stack>
       <Stack.Screen
         name="index"
-        options={{ headerShown: true, title: "Discovery" }}
+        options={{ headerShown: false, title: "Discovery" }}
       />
       <Stack.Screen
         name="unlock/index"

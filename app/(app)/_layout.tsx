@@ -2,21 +2,33 @@ import { Tabs } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useTheme } from "../_layout";
 import { View } from "react-native";
+import { getThemeColors } from "../../lib/theme";
 
 export default function AppLayout() {
   const { isDarkMode } = useTheme();
+  const colors = getThemeColors(isDarkMode);
 
   return (
-    <View className="flex-1 bg-white dark:bg-gray-900">
+    <View
+      style={{ backgroundColor: colors.background.primary }}
+      className="flex-1"
+    >
       <Tabs
         screenOptions={{
-          headerShown: false,
-          tabBarStyle: {
-            backgroundColor: isDarkMode ? "#1f2937" : "white",
-            borderTopColor: isDarkMode ? "#374151" : "#e5e7eb",
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: colors.background.secondary,
           },
-          tabBarActiveTintColor: "#81b0ff",
-          tabBarInactiveTintColor: isDarkMode ? "#9ca3af" : "#6b7280",
+          headerTitleStyle: {
+            color: colors.text.primary,
+          },
+          headerTintColor: colors.text.primary,
+          tabBarStyle: {
+            backgroundColor: colors.background.secondary,
+            borderTopColor: colors.background.tertiary,
+          },
+          tabBarActiveTintColor: colors.navigation.tabBar.activeColor,
+          tabBarInactiveTintColor: colors.navigation.tabBar.inactiveColor,
         }}
       >
         <Tabs.Screen
@@ -46,7 +58,6 @@ export default function AppLayout() {
             ),
           }}
         />
-
         <Tabs.Screen
           name="index"
           options={{

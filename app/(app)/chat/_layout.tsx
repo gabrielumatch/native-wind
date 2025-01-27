@@ -5,7 +5,7 @@ export default function ChatLayout() {
     <Stack>
       <Stack.Screen
         name="index"
-        options={{ headerShown: true, title: "Chat" }}
+        options={{ headerShown: false, title: "Chat" }}
       />
     </Stack>
   );

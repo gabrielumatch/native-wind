@@ -1,26 +1,15 @@
 import { Stack } from "expo-router";
 import { View } from "react-native";
 import { useTheme } from "../_layout";
+import { getNavigationTheme } from "../../lib/theme";
 
 export default function AuthLayout() {
   const { isDarkMode } = useTheme();
+  const navigationTheme = getNavigationTheme(isDarkMode);
 
   return (
     <View className="flex-1 bg-white dark:bg-gray-900">
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: isDarkMode ? "#1f2937" : "white",
-          },
-          headerTintColor: isDarkMode ? "white" : "#1f2937",
-          headerTitleStyle: {
-            color: isDarkMode ? "white" : "#1f2937",
-          },
-          contentStyle: {
-            backgroundColor: isDarkMode ? "#111827" : "white",
-          },
-        }}
-      >
+      <Stack screenOptions={navigationTheme}>
         <Stack.Screen
           name="login/index"
           options={{
