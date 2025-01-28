@@ -50,27 +50,30 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1 items-center justify-center p-4 bg-white">
+    <View className="flex-1 items-center justify-center p-4 bg-white dark:bg-gray-900">
       <View className="w-full max-w-sm space-y-6">
         <View className="space-y-2">
-          <Text className="text-2xl font-bold text-center text-gray-900">
+          <Text className="text-2xl font-bold text-center text-gray-900 dark:text-white">
             Login
           </Text>
-          <Text className="text-gray-500 text-center">
+          <Text className="text-gray-500 dark:text-gray-400 text-center">
             Please enter your credentials
           </Text>
         </View>
 
         <View className="space-y-4">
           {error ? (
-            <Text className="text-red-500 text-center">{error}</Text>
+            <Text className="text-red-500 dark:text-red-400 text-center">
+              {error}
+            </Text>
           ) : null}
 
           <View className="space-y-2">
-            <Text className="text-gray-700">Email</Text>
+            <Text className="text-gray-700 dark:text-gray-300">Email</Text>
             <TextInput
-              className="w-full border border-gray-300 rounded-lg px-4 py-3"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               placeholder="Enter your email"
+              placeholderTextColor="#9CA3AF"
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -79,10 +82,11 @@ export default function LoginScreen() {
           </View>
 
           <View className="space-y-2">
-            <Text className="text-gray-700">Password</Text>
+            <Text className="text-gray-700 dark:text-gray-300">Password</Text>
             <TextInput
-              className="w-full border border-gray-300 rounded-lg px-4 py-3"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               placeholder="Enter your password"
+              placeholderTextColor="#9CA3AF"
               value={password}
               onChangeText={setPassword}
               secureTextEntry
@@ -90,7 +94,7 @@ export default function LoginScreen() {
           </View>
 
           <TouchableOpacity
-            className="w-full bg-blue-600 p-4 rounded-lg items-center"
+            className="w-full bg-blue-600 dark:bg-blue-500 p-4 rounded-lg items-center"
             onPress={handleLogin}
             disabled={loginMutation.isPending}
           >
