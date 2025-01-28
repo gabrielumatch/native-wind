@@ -1,4 +1,62 @@
 import { Platform } from "react-native";
+import { createContext, useContext, useState, useEffect } from "react";
+import { useColorScheme } from "nativewind";
+import { ThemeStorage } from "./storage";
+
+// Theme context type
+type ThemeContextType = {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+};
+
+// Create theme context
+export const ThemeContext = createContext<ThemeContextType>({
+  isDarkMode: false,
+  toggleTheme: () => {},
+});
+
+// Theme hook
+export const useTheme = () => useContext(ThemeContext);
+
+// Theme provider hook
+export const useThemeProvider = () => {
+  const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
+  const [isDarkMode, setIsDarkMode] = useState(colorScheme === "dark");
+  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
+
+  // Load saved theme on startup
+  useEffect(() => {
+    ThemeStorage.get().then((savedTheme) => {
+      if (savedTheme !== null) {
+        setIsDarkMode(savedTheme);
+        setColorScheme(savedTheme ? "dark" : "light");
+      }
+      setIsThemeLoaded(true);
+    });
+  }, []);
+
+  // Update NativeWind color scheme when theme changes
+  useEffect(() => {
+    if (isThemeLoaded) {
+      setColorScheme(isDarkMode ? "dark" : "light");
+    }
+  }, [isDarkMode, isThemeLoaded]);
+
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => {
+      const newValue = !prev;
+      ThemeStorage.set(newValue);
+      toggleColorScheme();
+      return newValue;
+    });
+  };
+
+  return {
+    isDarkMode,
+    toggleTheme,
+    isThemeLoaded,
+  };
+};
 
 export const getThemeColors = (isDarkMode: boolean) => ({
   // Background colors

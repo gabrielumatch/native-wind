@@ -1,7 +1,6 @@
 import { Link } from "expo-router";
 import { Text, View, Pressable } from "react-native";
-import { useTheme } from "../../_layout";
-import { getThemeColors } from "../../../lib/theme";
+import { useTheme, getThemeColors } from "../../../lib/theme";
 
 export default function Discovery() {
   const { isDarkMode } = useTheme();

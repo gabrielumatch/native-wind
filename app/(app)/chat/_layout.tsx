@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { usePermission } from "../../../lib/permissions/hooks";
+import { ThemedStackLayout } from "../../../components/layouts/ThemedStackLayout";
 
 export default function ChatLayout() {
   const { status, request } = usePermission("microphone");
@@ -12,11 +13,11 @@ export default function ChatLayout() {
   }, [status, request]);
 
   return (
-    <Stack>
+    <ThemedStackLayout>
       <Stack.Screen
         name="index"
         options={{ headerShown: false, title: "Chat" }}
       />
-    </Stack>
+    </ThemedStackLayout>
   );
 }

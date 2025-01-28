@@ -1,15 +1,11 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { usePermission } from "../../../lib/permissions/hooks";
-import { useTheme } from "../../_layout";
-import { getThemeColors, getNavigationTheme } from "../../../lib/theme";
+import { ThemedStackLayout } from "../../../components/layouts/ThemedStackLayout";
 
 export default function ProfileLayout() {
   const camera = usePermission("camera");
   const gallery = usePermission("photoLibrary");
-  const { isDarkMode } = useTheme();
-  const colors = getThemeColors(isDarkMode);
-  const navigationTheme = getNavigationTheme(isDarkMode);
 
   useEffect(() => {
     // Request camera permission if not determined
@@ -23,13 +19,12 @@ export default function ProfileLayout() {
   }, [camera.status, gallery.status]);
 
   return (
-    <Stack>
+    <ThemedStackLayout>
       <Stack.Screen
         name="index"
         options={{
           headerShown: true,
           title: "Profile",
-          ...navigationTheme,
         }}
       />
       <Stack.Screen
@@ -37,9 +32,8 @@ export default function ProfileLayout() {
         options={{
           headerShown: true,
           title: "Settings",
-          ...navigationTheme,
         }}
       />
-    </Stack>
+    </ThemedStackLayout>
   );
 }

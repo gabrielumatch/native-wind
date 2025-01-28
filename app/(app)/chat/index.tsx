@@ -1,6 +1,5 @@
 import { Text, View } from "react-native";
-import { useTheme } from "../../_layout";
-import { getThemeColors } from "../../../lib/theme";
+import { useTheme, getThemeColors } from "../../../lib/theme";
 
 export default function Chat() {
   const { isDarkMode } = useTheme();
