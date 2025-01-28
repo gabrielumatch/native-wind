@@ -1,24 +1,13 @@
 import { Tabs } from "expo-router";
-import { ThemedView } from "./ThemedView";
+import { ThemedView } from "../components/ThemedView";
 import { PropsWithChildren } from "react";
-import { useThemedLayout } from "./useThemedLayout";
+import { useThemedLayout } from "../hooks/useThemedLayout";
 
-/**
- * Props for ThemedTabLayout component
- * Allows customization of Tabs.Screen options
- */
 type ThemedTabLayoutProps = PropsWithChildren<{
   /** Additional screen options to merge with theme defaults */
   screenOptions?: Partial<Parameters<typeof Tabs.Screen>[0]["options"]>;
 }>;
 
-/**
- * Themed Tab Navigation Layout
- * Provides consistent theme-aware styling for bottom tab navigation
- * Uses ThemedView as base container
- *
- * @param screenOptions - Additional Tabs.Screen options
- */
 export function ThemedTabLayout({
   children,
   screenOptions,

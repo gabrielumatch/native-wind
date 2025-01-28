@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { ThemedStackLayout } from "@/components/layouts/ThemedStackLayout";
+import { ThemedStackLayout } from "@/lib/theme/index";
 
 export default function AuthLayout() {
   return (

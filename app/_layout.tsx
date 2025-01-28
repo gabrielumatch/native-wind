@@ -7,8 +7,8 @@ import {
   getThemeColors,
   ThemeContext,
   useThemeProvider,
-} from "@/lib/theme";
-import { StatusBarTheme } from "@/components/StatusBarTheme";
+  StatusBarTheme,
+} from "@/lib/theme/index";
 
 const queryClient = new QueryClient();
 

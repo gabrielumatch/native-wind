@@ -1,6 +1,5 @@
 import { StatusBar } from "react-native";
-import { useTheme } from "@/lib/theme";
-import { getThemeColors } from "@/lib/theme";
+import { useTheme, getThemeColors } from "../core";
 
 export function StatusBarTheme() {
   const { isDarkMode } = useTheme();

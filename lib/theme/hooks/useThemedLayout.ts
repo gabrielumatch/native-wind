@@ -1,4 +1,4 @@
-import { useTheme, getThemeColors, getNavigationTheme } from "@/lib/theme";
+import { useTheme, getThemeColors, getNavigationTheme } from "../core";
 
 /**
  * Custom hook for themed layouts
