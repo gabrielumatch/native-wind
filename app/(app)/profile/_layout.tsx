@@ -1,7 +1,7 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
-import { usePermission } from "../../../lib/permissions/hooks";
-import { ThemedStackLayout } from "../../../components/layouts/ThemedStackLayout";
+import { usePermission } from "@/lib/permissions/hooks";
+import { ThemedStackLayout } from "@/components/layouts/ThemedStackLayout";
 
 export default function ProfileLayout() {
   const camera = usePermission("camera");

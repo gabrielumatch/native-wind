@@ -1,6 +1,6 @@
 import { View, ViewProps } from "react-native";
-import { useTheme } from "../../lib/theme";
-import { getThemeColors } from "../../lib/theme";
+import { useTheme } from "@/lib/theme";
+import { getThemeColors } from "@/lib/theme";
 
 type ThemedViewProps = ViewProps & {
   useCustomBackground?: boolean;

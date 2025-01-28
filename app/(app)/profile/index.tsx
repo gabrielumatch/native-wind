@@ -1,5 +1,5 @@
 import { Text, View, Switch } from "react-native";
-import { useTheme, getThemeColors } from "../../../lib/theme";
+import { useTheme, getThemeColors } from "@/lib/theme";
 import { Link } from "expo-router";
 
 export default function Profile() {

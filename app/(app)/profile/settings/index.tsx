@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { useTheme, getThemeColors } from "../../../../lib/theme";
+import { useTheme, getThemeColors } from "@/lib/theme";
 
 export default function Settings() {
   const { isDarkMode } = useTheme();

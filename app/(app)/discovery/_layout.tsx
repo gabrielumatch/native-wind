@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
-import { usePermission } from "../../../lib/permissions/hooks";
+import { usePermission } from "@/lib/permissions/hooks";
 
 export default function DiscoveryLayout() {
   const { status, request } = usePermission("location");

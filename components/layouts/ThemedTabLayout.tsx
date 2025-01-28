@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
-import { useTheme } from "../../lib/theme";
-import { getThemeColors } from "../../lib/theme";
+import { useTheme } from "@/lib/theme";
+import { getThemeColors } from "@/lib/theme";
 import { ThemedView } from "./ThemedView";
 import { PropsWithChildren } from "react";
 

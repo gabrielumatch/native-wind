@@ -1,5 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { ThemedTabLayout } from "../../components/layouts/ThemedTabLayout";
+import { ThemedTabLayout } from "@/components/layouts/ThemedTabLayout";
 import { Tabs } from "expo-router";
 
 export default function AppLayout() {
