@@ -3,22 +3,37 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useColorScheme } from "nativewind";
 import { ThemeStorage } from "./storage";
 
-// Theme context type
+/**
+ * Theme context type definition
+ * Provides dark mode state and toggle functionality throughout the app
+ */
 type ThemeContextType = {
   isDarkMode: boolean;
   toggleTheme: () => void;
 };
 
-// Create theme context
+/**
+ * Theme context with default values
+ * Used to provide theme state across the component tree
+ */
 export const ThemeContext = createContext<ThemeContextType>({
   isDarkMode: false,
   toggleTheme: () => {},
 });
 
-// Theme hook
+/**
+ * Custom hook to access theme context
+ * Use this in components that need to respond to theme changes
+ */
 export const useTheme = () => useContext(ThemeContext);
 
-// Theme provider hook
+/**
+ * Theme provider hook that manages theme state
+ * Handles:
+ * - Theme persistence with storage
+ * - NativeWind color scheme sync
+ * - Theme toggle functionality
+ */
 export const useThemeProvider = () => {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const [isDarkMode, setIsDarkMode] = useState(colorScheme === "dark");
@@ -58,6 +73,10 @@ export const useThemeProvider = () => {
   };
 };
 
+/**
+ * Core theme colors configuration
+ * Provides consistent color palette across the app based on theme mode
+ */
 export const getThemeColors = (isDarkMode: boolean) => ({
   // Background colors
   background: {
@@ -90,6 +109,10 @@ export const getThemeColors = (isDarkMode: boolean) => ({
   },
 });
 
+/**
+ * Navigation theme configuration for stack navigators
+ * Provides consistent styling for headers and navigation elements
+ */
 export const getNavigationTheme = (isDarkMode: boolean) => {
   const colors = getThemeColors(isDarkMode);
 
@@ -107,6 +130,10 @@ export const getNavigationTheme = (isDarkMode: boolean) => {
   };
 };
 
+/**
+ * Tab bar theme configuration
+ * Provides consistent styling for bottom tab navigation
+ */
 export const getTabBarTheme = (isDarkMode: boolean) => {
   const colors = getThemeColors(isDarkMode);
 
@@ -121,6 +148,10 @@ export const getTabBarTheme = (isDarkMode: boolean) => {
   };
 };
 
+/**
+ * Status bar theme configuration
+ * Handles platform-specific status bar styling
+ */
 export const getStatusBarConfig = (isDarkMode: boolean) => {
   const colors = getThemeColors(isDarkMode);
 
