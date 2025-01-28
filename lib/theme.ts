@@ -74,10 +74,43 @@ export const useThemeProvider = () => {
 };
 
 /**
+ * Theme colors type definition
+ * Defines the structure of the app's color palette
+ */
+export type ThemeColors = {
+  background: {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+  };
+  text: {
+    primary: string;
+    secondary: string;
+  };
+  statusBar: {
+    style: "light-content" | "dark-content";
+    backgroundColor: string;
+  };
+  navigation: {
+    tabBar: {
+      background: string;
+      border: string;
+      activeColor: string;
+      inactiveColor: string;
+    };
+    header: {
+      background: string;
+      text: string;
+    };
+  };
+};
+
+/**
  * Core theme colors configuration
  * Provides consistent color palette across the app based on theme mode
+ * @returns {ThemeColors} Theme color object
  */
-export const getThemeColors = (isDarkMode: boolean) => ({
+export const getThemeColors = (isDarkMode: boolean): ThemeColors => ({
   // Background colors
   background: {
     primary: isDarkMode ? "#111827" : "white",

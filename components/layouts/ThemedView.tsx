@@ -1,6 +1,5 @@
 import { View, ViewProps } from "react-native";
-import { useTheme } from "@/lib/theme";
-import { getThemeColors } from "@/lib/theme";
+import { useThemedLayout } from "./useThemedLayout";
 
 /**
  * Props for ThemedView component
@@ -26,8 +25,7 @@ export function ThemedView({
   style,
   ...props
 }: ThemedViewProps) {
-  const { isDarkMode } = useTheme();
-  const colors = getThemeColors(isDarkMode);
+  const { colors } = useThemedLayout();
 
   return (
     <View

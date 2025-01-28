@@ -1,8 +1,7 @@
 import { Stack } from "expo-router";
-import { useTheme } from "@/lib/theme";
-import { getNavigationTheme } from "@/lib/theme";
 import { ThemedView } from "./ThemedView";
 import { PropsWithChildren } from "react";
+import { useThemedLayout } from "./useThemedLayout";
 
 /**
  * Props for ThemedStackLayout component
@@ -24,8 +23,7 @@ export function ThemedStackLayout({
   children,
   screenOptions,
 }: ThemedStackLayoutProps) {
-  const { isDarkMode } = useTheme();
-  const navigationTheme = getNavigationTheme(isDarkMode);
+  const { navigationTheme } = useThemedLayout();
 
   return (
     <ThemedView

@@ -1,8 +1,7 @@
 import { Tabs } from "expo-router";
-import { useTheme } from "@/lib/theme";
-import { getThemeColors } from "@/lib/theme";
 import { ThemedView } from "./ThemedView";
 import { PropsWithChildren } from "react";
+import { useThemedLayout } from "./useThemedLayout";
 
 /**
  * Props for ThemedTabLayout component
@@ -24,8 +23,7 @@ export function ThemedTabLayout({
   children,
   screenOptions,
 }: ThemedTabLayoutProps) {
-  const { isDarkMode } = useTheme();
-  const colors = getThemeColors(isDarkMode);
+  const { colors } = useThemedLayout();
 
   return (
     <ThemedView>
