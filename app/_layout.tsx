@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import "../global.css";
+import "@/global.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { View } from "react-native";
 import {
@@ -7,8 +7,8 @@ import {
   getThemeColors,
   ThemeContext,
   useThemeProvider,
-} from "../lib/theme";
-import { StatusBarTheme } from "../components/StatusBarTheme";
+} from "@/lib/theme";
+import { StatusBarTheme } from "@/components/StatusBarTheme";
 
 const queryClient = new QueryClient();
 
