@@ -74,19 +74,7 @@ export default function RootLayout() {
             }}
           >
             <Stack.Screen name="(app)" />
-            <Stack.Screen
-              name="(auth)"
-              options={{
-                headerShown: true,
-                headerStyle: {
-                  backgroundColor: colors.background.secondary,
-                },
-                headerTitleStyle: {
-                  color: colors.text.primary,
-                },
-                headerTintColor: colors.text.primary,
-              }}
-            />
+            <Stack.Screen name="(auth)" />
             <Stack.Screen
               name="index"
               options={{

@@ -11,15 +11,17 @@ export default function AuthLayout() {
     <View className="flex-1 bg-white dark:bg-gray-900">
       <Stack screenOptions={navigationTheme}>
         <Stack.Screen
-          name="login/index"
+          name="login"
           options={{
             title: "Login",
+            headerShown: false,
           }}
         />
         <Stack.Screen
-          name="register/index"
+          name="register"
           options={{
             title: "Register",
+            headerShown: false,
           }}
         />
       </Stack>
